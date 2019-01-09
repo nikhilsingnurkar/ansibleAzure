@@ -9,6 +9,6 @@ $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number
         $disk | 
         Initialize-Disk -PartitionStyle MBR -PassThru |
         New-Partition -UseMaximumSize -DriveLetter $driveLetter |
-        Format-Volume -FileSystem NTFS -NewFileSystemLabel $labels[$count] -Confirm:$false -Force
+        Format-Volume -FileSystem NTFS -NewFileSystemLabel "data$count" -Confirm:$false -Force
     $count++
     }
